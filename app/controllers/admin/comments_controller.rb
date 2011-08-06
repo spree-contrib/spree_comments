@@ -1,9 +1,7 @@
-class Admin::CommentsController < Admin::BaseController
-  resource_controller
-
-  create.response do |wants|
-    # go to edit form after creating as new product
-    wants.html {redirect_to :back}
+class Admin::CommentsController < Admin::ResourceController
+  private
+  
+  def location_after_save
+    :back
   end
-
 end
