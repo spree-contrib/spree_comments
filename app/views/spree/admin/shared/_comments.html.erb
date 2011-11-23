@@ -1,6 +1,6 @@
 <h1><%= "#{t(:comments)} #{(t(:for) + " " + comments_for unless (comments_for rescue nil).nil?)}"%></h1>
 
-<%= render 'admin/shared/comment_list', :commentable => commentable %>
+<%= render 'spree/admin/shared/comment_list', :commentable => commentable %>
 
 <div class="order-add-comment">
   <%= form_for(:comment, :url => admin_comments_url) do |f| %>

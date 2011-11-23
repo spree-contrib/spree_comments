@@ -1,8 +1,8 @@
-<%= render :partial => 'admin/shared/configuration_menu' %>
+<%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <%= hook :admin_comment_type_edit_form_header do %>
   <h1><%= t(:editing_comment_type) %></h1>
-  <%= render 'shared/error_messages', :target => @comment_type %>
+  <%= render 'spree/shared/error_messages', :target => @comment_type %>
 <% end %>
 
 <%= hook :admin_comment_type_edit_form do %>
@@ -10,7 +10,7 @@
     <%= render :partial => 'form', :locals => { :f => f } %>
 
     <%= hook :admin_comment_type_edit_form_buttons do %>
-      <%= render :partial => 'admin/shared/edit_resource_links' %>
+      <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
     <% end %>
   <% end %>
 <% end %>

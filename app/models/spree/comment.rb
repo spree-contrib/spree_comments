@@ -1,4 +1,4 @@
-class Comment < ActiveRecord::Base
+class Spree::Comment < ActiveRecord::Base
   include ActsAsCommentable::Comment
 
   belongs_to :commentable, :polymorphic => true

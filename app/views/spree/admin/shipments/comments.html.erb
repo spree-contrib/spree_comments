@@ -1,0 +1,2 @@
+<%= render 'spree/admin/shared/order_tabs', :current => 'Shipments' %>
+<%= render 'spree/admin/shared/comments', {:commentable => @shipment, :comments_for => "Shipment ##{@shipment.number}"} %>
