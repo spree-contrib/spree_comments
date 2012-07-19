@@ -14,28 +14,23 @@
 <table class="index">
   <thead>
     <tr>
-    <%= hook :admin_comment_types_index_headers do %>
       <th><%= t(:name) %></th>
       <th><%= t(:applies_to) %></th>
-    <% end %>
       <th>
-        <% hook :admin_comment_types_index_header_actions %>
+        <div data-hook="admin_comment_types_index_header_actions"></div>
       </th>
     </tr>
   </thead>
   <tbody>
     <% @comment_types.each do |comment_type| %>
       <tr id="<%= dom_id comment_type %>">
-        <%- locals = {:comment_type => comment_type} -%>
-        <%= hook :admin_comment_types_index_rows, locals do %>
-          <td><%= comment_type.name %></td>
-          <td><%= comment_type.applies_to %></td>
-        <% end %>
+        <td><%= comment_type.name %></td>
+        <td><%= comment_type.applies_to %></td>
         <td width="140px">
-          <%= hook :admin_comment_types_index_row_actions, locals do %>
+          <div data-hook="admin_comment_types_index_row_actions">
             <%= link_to_edit comment_type %> &nbsp;
             <%= link_to_delete comment_type %>
-          <% end %>
+          </div>
         </td>
       </tr>
     <% end %>
