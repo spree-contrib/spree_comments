@@ -1,5 +1,4 @@
-<%- locals = {:f => f} -%>
-<%= hook :admin_comment_type_form_fields, locals do %>
+<div data-hook="admin_comment_type_form_fields">
   <%= f.field_container :name do %>
     <%= f.label :name, t(:name) %><br />
     <%= f.text_field :name, :class => 'fullwidth title' %>
@@ -12,5 +11,5 @@
     <%= error_message_on :comment_type, :applies_to%>
   <% end %>
 
-<% end %>
+</div>
 
