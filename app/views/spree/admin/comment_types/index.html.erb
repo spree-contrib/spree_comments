@@ -17,7 +17,7 @@
       <th><%= t(:name) %></th>
       <th><%= t(:applies_to) %></th>
       <th>
-        <div data-hook="admin_comment_types_index_header_actions"></div>
+        <div id="admin_comment_types_index_header_actions" data-hook></div>
       </th>
     </tr>
   </thead>
@@ -27,7 +27,7 @@
         <td><%= comment_type.name %></td>
         <td><%= comment_type.applies_to %></td>
         <td width="140px">
-          <div data-hook="admin_comment_types_index_row_actions">
+          <div id="admin_comment_types_index_row_actions" data-hook>
             <%= link_to_edit comment_type %> &nbsp;
             <%= link_to_delete comment_type %>
           </div>
