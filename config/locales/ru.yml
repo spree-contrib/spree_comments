@@ -1,4 +1,4 @@
-ru-RU:
+ru:
   said: сказал
   for: для
   comments: Комментарии
@@ -7,6 +7,6 @@ ru-RU:
   add_comment_type: Добавить тип комментария
   comment_types: Типы комментариев
   manage_comment_types: Администрирование типов комментариев
-  applies_to: Applies To
+  applies_to: Применить к
   new_comment_type: Новый тип комментария
   editing_comment_type: Редактировать тип комментария
