@@ -1,25 +1,26 @@
 <table class="index">
-  <tr>
-    <th style="width:140px;"><%= "#{t('spree.date')}/#{t('spree.time')}" %></th>
-    <% if @comment_types and !@comment_types.empty? %>
+  <colgroup>
+    <col style="width: 18%" />
+    <col style="width: 15%" />
+    <col style="width: 20%" />
+    <col style="width: 47%" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th><%= "#{t('spree.date')}/#{t('spree.time')}" %></th>
       <th><%= t(:type) %></th>
-    <% end %>
-    <th><%= t(:comment) %></th>
-  </tr>
-  <% commentable.comments.reverse.each_with_index do |comment, index| %>
-    <tr id="<%= dom_id(comment) %>">
-      <td><%= comment.created_at.to_formatted_s(:long) %></td>
-      <% if @comment_types and !@comment_types.empty? %>
-        <td><%= comment.comment_type.name if comment.comment_type %></td>
-      <% end %>
-      <td>
-        <div id="order-comment-header-<%= index %>" class="order-comment-header">
-          <strong><%= comment.user.email + ' ' + t(:said)%> :</strong>
-        </div>
-        <div id="order-comment-body-<%= index %>" class="order-comment-body">
-          <%= comment.comment.html_safe %>
-        </div>
-      </td>
+      <th><%= t(:commenter) %></th>
+      <th><%= t(:comment) %></th>
     </tr>
-  <% end %>
+  </thead>
+  <tbody>
+    <% commentable.comments.reverse.each_with_index do |comment, index| %>
+      <tr class="<%= cycle('odd', 'even')%>">
+        <td class='align-center'><%= pretty_time(comment.created_at) %></td>
+        <td class='align-center'><%= comment.comment_type.try(:name) || 'None' %></td>
+        <td class='align-center'><%= comment.user.email %></td>
+        <td><%= comment.comment.html_safe %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>

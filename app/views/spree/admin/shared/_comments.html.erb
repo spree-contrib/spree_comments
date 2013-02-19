@@ -1,5 +1,3 @@
-<h1><%= "#{t(:comments)} #{(t(:for) + " " + comments_for unless (comments_for rescue nil).nil?)}"%></h1>
-
 <%= render 'spree/admin/shared/comment_list', :commentable => commentable %>
 
 <div class="order-add-comment">
@@ -8,30 +6,31 @@
     <%= hidden_field_tag 'comment[commentable_type]', commentable.class %>
     <%= hidden_field_tag 'comment[user_id]', current_user.id %>
 
-    <table class="index">
-      <thead>
-        <th colspan="2"><%= t(:add_comment) %></th>
-      </thead>
-      <tbody>
-        <% if @comment_types.present? %>
-          <tr>
-            <td><%= f.label :comment_type_id, t(:type) %><br /></td>
-            <td><%= f.select :comment_type_id, @comment_types.map{|ct| [ct.name, ct.id]},{} ,:class => 'title' %></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td style="width:140px;"><%= f.label :comment, t(:comment) %></td>
-          <td><%= f.text_area :comment,  {:style => 'height:150px;', :class => 'fullwidth'} %></td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-          <td><%= button t(:add_comment) %></td>
-        </tr>
-      </tbody>
-    </table>
+    <fieldset data-hook="admin_comment_form_fields" class="no-border-top">
+      <fieldset class="index no-border-bottom">
+        <legend align="center"><%= t(:add_comment) %></legend>
 
-    <p class="form-buttons">
+        <div data-hook="comment_fields" class="row">
+          <div class="alpha twelve columns">
+            <% if @comment_types.present? %>
+              <div class="field">
+                <%= f.label :comment_type_id, t(:type) %>
+                <%= f.select :comment_type_id, @comment_types.map{|ct| [ct.name, ct.id]},{} ,:class => 'fullwidth' %>
+              </div>
+            <% end %>
+            <div class="field">
+              <%= f.label :comment, t(:comment) %>
+              <%= f.text_area :comment, :style => 'height:150px;', :class => 'fullwidth' %>
+            </div>
+          </div>
+        </div>
+      </fieldset>
 
-    </p>
+      <div class="clear"></div>
+
+      <div class="form-buttons filter-actions actions" data-hook="buttons">
+        <%= button t(:add_comment), 'icon-arrow-right' %>
+      </div>
+    </fieldset>
   <% end %>
 </div>

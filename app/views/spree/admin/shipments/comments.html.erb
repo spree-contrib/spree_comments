@@ -1,2 +1,7 @@
 <%= render 'spree/admin/shared/order_tabs', :current => 'Shipments' %>
+
+<% content_for :page_title do %>
+  <i class="icon-arrow-right"></i> <%= t(:shipments) %> <i class="icon-arrow-right"></i> #<%= @shipment.number%> (<%= t(@shipment.state.to_sym, :scope => :state_names, :default => @shipment.state.to_s.humanize) %>)
+<% end %>
+
 <%= render 'spree/admin/shared/comments', {:commentable => @shipment, :comments_for => "Shipment ##{@shipment.number}"} %>

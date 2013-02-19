@@ -1,36 +1,37 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<div class="toolbar">
-  <ul class="actions">
-    <li>
-      <%= button_link_to t(:new_comment_type), new_object_url, :icon => 'add'  %>
-    </li>
-  </ul>
-  <br class="clear" />
-</div>
+<% content_for :page_title do %>
+  <%= t(:comment_types) %>
+<% end %>
 
-<h1><%= t(:comment_types) %></h1>
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to t(:new_comment_type), new_object_url, :icon => 'icon-plus', :id => 'admin_new_comment_type_link' %>
+  </li>
+<% end %>
 
-<table class="index">
+<table class="index" id='listing_comment_types'>
+  <colgroup>
+    <col style="width: 40%">
+    <col style="width: 45%">
+    <col style="width: 15%">
+  </colgroup>
   <thead>
-    <tr>
+    <tr data-hook="admin_comment_types_index_headers">
       <th><%= t(:name) %></th>
       <th><%= t(:applies_to) %></th>
-      <th>
-        <div id="admin_comment_types_index_header_actions" data-hook></div>
-      </th>
+      <th data-hook="admin_comment_types_index_header_actions" class="actions"></th>
     </tr>
   </thead>
   <tbody>
     <% @comment_types.each do |comment_type| %>
       <tr id="<%= dom_id comment_type %>">
+      <tr id="<%= spree_dom_id comment_type %>" data-hook="admin_comment_types_index_rows" class="<%= cycle('odd', 'even')%>">
         <td><%= comment_type.name %></td>
         <td><%= comment_type.applies_to %></td>
-        <td width="140px">
-          <div id="admin_comment_types_index_row_actions" data-hook>
-            <%= link_to_edit comment_type %> &nbsp;
-            <%= link_to_delete comment_type %>
-          </div>
+        <td data-hook="admin_comment_types_index_row_actions" class="actions">
+          <%= link_to_edit comment_type, :no_text => true %>
+          <%= link_to_delete comment_type, :no_text => true  %>
         </td>
       </tr>
     <% end %>

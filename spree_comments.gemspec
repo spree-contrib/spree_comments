@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform  = Gem::Platform::RUBY
   s.name      = 'spree_comments'
-  s.version   = '1.0.1'
+  s.version   = '2.0.0'
   s.summary   = 'Comments for orders and shipments'
   s.required_ruby_version = '>= 1.8.7'
 
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.require_path  = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '>= 0.70.0'
+  s.add_dependency 'spree_core', '>= 1.2.0'
   s.add_dependency 'acts_as_commentable', '3.0.1'
   s.add_development_dependency 'rspec-rails'
 

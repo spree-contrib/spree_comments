@@ -1,17 +1,22 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
-<div id="admin_comment_type_new_form_header" data-hook>
-  <h1><%= t(:new_comment_type) %></h1>
+<% content_for :page_title do %>
+  <%= t(:new_comment_type) %>
+<% end %>
 
-  <%= render 'spree/shared/error_messages', :target => @comment_type %>
-</div>
+<% content_for :page_actions do %>
+  <li>
+    <%= button_link_to t(:back_to_comment_types_list), admin_comment_types_path, :icon => 'icon-arrow-left' %>
+  </li>
+<% end %>
 
-<div id="admin_comment_type_new_form" data-hook>
-  <%= form_for(:comment_type, :url => collection_url) do |f| %>
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @comment_type } %>
+
+<%= form_for(:comment_type, :url => collection_url) do |f| %>
+  <fieldset class="no-border-top">
     <%= render :partial => 'form', :locals => { :f => f } %>
-
-    <div id="admin_comment_type_new_form_buttons" data-hook>
-      <%= render :partial => 'spree/admin/shared/new_resource_links' %>
+    <div data-hook="buttons" class="filter-actions actions">
+      <%= button t(:create), 'icon-ok' %>
     </div>
-  <% end %>
-</div>
+  </fieldset>
+<% end %>
