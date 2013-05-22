@@ -4,7 +4,7 @@
   <%= form_for(:comment, :url => admin_comments_url) do |f| %>
     <%= hidden_field_tag 'comment[commentable_id]', commentable.id %>
     <%= hidden_field_tag 'comment[commentable_type]', commentable.class %>
-    <%= hidden_field_tag 'comment[user_id]', current_user.id %>
+    <%= hidden_field_tag 'comment[user_id]', current_spree_user.id %>
 
     <fieldset data-hook="admin_comment_form_fields" class="no-border-top">
       <fieldset class="index no-border-bottom">
