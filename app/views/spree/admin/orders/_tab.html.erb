@@ -1,3 +1,3 @@
 <li <%== ' class="active"' if (defined? current and current == 'Comments') %>>
-  <%= link_to t(:comments), comments_admin_order_url(@order) %>
+  <%= link_to Spree.t(:comments), comments_admin_order_url(@order) %>
 </li>
