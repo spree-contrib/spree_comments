@@ -8,18 +8,18 @@
 
     <fieldset data-hook="admin_comment_form_fields" class="no-border-top">
       <fieldset class="index no-border-bottom">
-        <legend align="center"><%= t(:add_comment) %></legend>
+        <legend align="center"><%= Spree.t(:add_comment) %></legend>
 
         <div data-hook="comment_fields" class="row">
           <div class="alpha twelve columns">
             <% if @comment_types.present? %>
               <div class="field">
-                <%= f.label :comment_type_id, t(:type) %>
+                <%= f.label :comment_type_id, Spree.t(:type) %>
                 <%= f.select :comment_type_id, @comment_types.map{|ct| [ct.name, ct.id]},{} ,:class => 'fullwidth' %>
               </div>
             <% end %>
             <div class="field">
-              <%= f.label :comment, t(:comment) %>
+              <%= f.label :comment, Spree.t(:comment) %>
               <%= f.text_area :comment, :style => 'height:150px;', :class => 'fullwidth' %>
             </div>
           </div>
@@ -29,7 +29,7 @@
       <div class="clear"></div>
 
       <div class="form-buttons filter-actions actions" data-hook="buttons">
-        <%= button t(:add_comment), 'icon-arrow-right' %>
+        <%= button Spree.t(:add_comment), 'icon-arrow-right' %>
       </div>
     </fieldset>
   <% end %>

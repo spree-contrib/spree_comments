@@ -1,12 +1,12 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
 
 <% content_for :page_title do %>
-  <%= t(:comment_types) %>
+  <%= Spree.t(:comment_types) %>
 <% end %>
 
 <% content_for :page_actions do %>
   <li>
-    <%= button_link_to t(:new_comment_type), new_object_url, :icon => 'icon-plus', :id => 'admin_new_comment_type_link' %>
+    <%= button_link_to Spree.t(:new_comment_type), new_object_url, :icon => 'icon-plus', :id => 'admin_new_comment_type_link' %>
   </li>
 <% end %>
 
@@ -18,8 +18,8 @@
   </colgroup>
   <thead>
     <tr data-hook="admin_comment_types_index_headers">
-      <th><%= t(:name) %></th>
-      <th><%= t(:applies_to) %></th>
+      <th><%= Spree.t(:name) %></th>
+      <th><%= Spree.t(:applies_to) %></th>
       <th data-hook="admin_comment_types_index_header_actions" class="actions"></th>
     </tr>
   </thead>
