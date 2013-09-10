@@ -1,4 +1,10 @@
-<%= render 'spree/admin/shared/comment_list', :commentable => commentable %>
+<% if commentable.comments.any? %>
+  <%= render 'spree/admin/shared/comment_list', :commentable => commentable %>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: I18n.t(:comments, scope: 'spree')) %>
+  </div>
+<% end %>
 
 <div class="order-add-comment">
   <%= form_for(:comment, :url => admin_comments_url) do |f| %>

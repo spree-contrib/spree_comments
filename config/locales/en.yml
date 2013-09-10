@@ -1,14 +1,17 @@
 ---
 en:
-  said: said
-  for: for
-  comments: Comments
-  comment: Comment
-  add_comment: Add Comment
-  add_comment_type: Add Comment Type
-  comment_types: Comment Types
-  manage_comment_types: Manage comment types
-  applies_to: Applies To
-  new_comment_type: New Comment Type
-  editing_comment_type: Editing Comment Type
-  back_to_comment_types_list: Back to Comment Types List
+  spree:
+    said: said
+    for: for
+    none: None
+    comments: Comments
+    comments_count: Comments (%{count})
+    comment: Comment
+    add_comment: Add Comment
+    add_comment_type: Add Comment Type
+    comment_types: Comment Types
+    manage_comment_types: Manage comment types
+    applies_to: Applies To
+    new_comment_type: New Comment Type
+    editing_comment_type: Editing Comment Type
+    back_to_comment_types_list: Back to Comment Types List

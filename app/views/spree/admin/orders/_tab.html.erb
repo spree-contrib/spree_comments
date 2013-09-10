@@ -1,3 +1,7 @@
 <li <%== ' class="active"' if (defined? current and current == 'Comments') %>>
-  <%= link_to Spree.t(:comments), comments_admin_order_url(@order) %>
+  <% if @order.comments.any? %>
+    <%= link_to_with_icon 'icon-comment-alt', Spree.t(:comments_count, count: @order.comments.count), comments_admin_order_url(@order) %>
+  <% else %>
+    <%= link_to_with_icon 'icon-comment-alt', Spree.t(:comments), comments_admin_order_url(@order) %>
+  <% end %>
 </li>
