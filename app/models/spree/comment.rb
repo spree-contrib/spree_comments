@@ -13,6 +13,4 @@ class Spree::Comment < ActiveRecord::Base
   # NOTE: Comments belong to a user
   belongs_to :user
 
-  attr_accessible :commentable_id, :commentable_type, :user_id, :comment_type_id, :comment
-
 end
