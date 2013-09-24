@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_api'
   s.add_dependency 'spree_backend'
-  s.add_dependency 'spree_core', '>= 2.0.1'
+  s.add_dependency 'spree_core', '>= 2.1.1'
   s.add_dependency 'acts_as_commentable', '4.0.1'
   s.add_development_dependency 'rspec-rails'
 
