@@ -18,7 +18,7 @@
       <tr class="<%= cycle('odd', 'even')%>">
         <td class='align-center'><%= pretty_time(comment.created_at) %></td>
         <td class='align-center'><%= comment.comment_type.try(:name) || Spree.t(:none) %></td>
-        <td class='align-center'><%= comment.user.email %></td>
+        <td class='align-center'><%= comment.user.try(:email) %></td>
         <td><%= comment.comment.html_safe %></td>
       </tr>
     <% end %>
