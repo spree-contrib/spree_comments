@@ -9,7 +9,7 @@
 #end
 #
 
-Spree::Core::Engine.routes.draw do
+Spree::Core::Engine.routes.add_routes do
   namespace :admin do
     resources :comments
     resources :comment_types
