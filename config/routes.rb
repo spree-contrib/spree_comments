@@ -26,7 +26,4 @@ Spree::Core::Engine.add_routes do
       end
     end
   end
-
-#match '/admin/comments' => 'admin/comments', :via => [:get, :post]
-#  match '/admin/comment_types' => 'admin/comment_types', :via => [:get, :post]
 end
