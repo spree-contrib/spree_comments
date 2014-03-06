@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Admin comment type' do
   stub_authorization!
 
-  context 'when no comment type exists' do
+  context 'when no comment type exists'  do
     background do
       visit spree.admin_path
 
@@ -13,6 +13,12 @@ feature 'Admin comment type' do
 
     scenario 'can create a new comment type' do
       expect(page).to have_text 'No Comment Types found'
+
+      click_link 'New Comment Type'
+      fill_in 'comment_type_name', with: 'comment_type'
+      click_button 'Create'
+
+      expect(page).to have_text 'successfully created!'
     end
   end
 end
