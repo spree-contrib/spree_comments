@@ -31,4 +31,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'selenium-webdriver'
   s.add_development_dependency 'poltergeist', '~> 1.5.0'
   s.add_development_dependency 'simplecov', '~> 0.8.2'
+  s.add_development_dependency 'sass-rails', '~> 4.0.0'
+  s.add_development_dependency 'coffee-rails', '~> 4.0.0'
 end
