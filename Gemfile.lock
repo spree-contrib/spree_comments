@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    spree_comments (2.0.0)
+    spree_comments (2.2.0)
       acts_as_commentable (= 4.0.1)
       spree_api (~> 2.2.0)
       spree_backend (~> 2.2.0)
