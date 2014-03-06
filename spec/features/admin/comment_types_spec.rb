@@ -12,17 +12,22 @@ feature 'Admin comment type', js: true do
 
     scenario 'can create a new comment type' do
       expect(page).to have_text 'NEW COMMENT TYPE NO COMMENT TYPES FOUND'
-      create_comment_type
+
+      click_link 'New Comment Type'
+      fill_in 'comment_type_name', with: 'comment type'
+      click_button 'Create'
+
       expect(page).to have_text 'Comment type "comment type" has been successfully created!'
     end
   end
 
   context 'when there is a comment type' do
+    given!(:comment_type) { create :comment_type }
+
     background do
       visit spree.admin_path
       click_link 'Configuration'
       click_link 'Comment Types'
-      create_comment_type
     end
 
     scenario 'update the existing comment type' do
@@ -40,10 +45,4 @@ feature 'Admin comment type', js: true do
       expect(page).to have_text 'Comment type "comment type" has been successfully removed!'
     end
   end
-end
-
-def create_comment_type
-  click_link 'New Comment Type'
-  fill_in 'comment_type_name', with: 'comment type'
-  click_button 'Create'
 end
