@@ -9,18 +9,20 @@ feature 'Admin comment on order', js: true do
   background do
     Spree::BaseController.any_instance.stub :spree_current_user => user
     visit spree.edit_admin_order_path(order)
+    click_link 'Comments'
   end
 
   scenario 'comment on an order' do
-    click_link 'Comments'
     fill_in 'comment_comment', with: 'this is a comment'
     click_button 'Add Comment'
     expect(page).to have_text 'Comment has been successfully created'
   end
 
   context 'an order has a comment' do
+    given!(:order_comment) { create :comment_for_order, commentable: order }
+
     scenario 'the comment shows up' do
-      pending
+      expect(page).to have_text order_comment.comment
     end
   end
 end

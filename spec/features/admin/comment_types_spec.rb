@@ -22,13 +22,13 @@ feature 'Admin comment type', js: true do
   end
 
   context 'when there is a comment type' do
-    given!(:comment_type) { create :comment_type }
-
     background do
       visit spree.admin_path
       click_link 'Configuration'
       click_link 'Comment Types'
     end
+
+    given!(:comment_type) { create :comment_type }
 
     scenario 'update the existing comment type' do
       click_icon :edit
