@@ -3,13 +3,13 @@ require 'spec_helper'
 feature 'Admin comment type', js: true do
   stub_authorization!
 
-  context 'when no comment type exists'  do
-    background do
-      visit spree.admin_path
-      click_link 'Configuration'
-      click_link 'Comment Types'
-    end
+  background do
+    visit spree.admin_path
+    click_link 'Configuration'
+    click_link 'Comment Types'
+  end
 
+  context 'when no comment type exists'  do
     scenario 'can create a new comment type' do
       expect(page).to have_text 'NEW COMMENT TYPE NO COMMENT TYPES FOUND'
 
@@ -22,12 +22,6 @@ feature 'Admin comment type', js: true do
   end
 
   context 'when there is a comment type' do
-    background do
-      visit spree.admin_path
-      click_link 'Configuration'
-      click_link 'Comment Types'
-    end
-
     given!(:comment_type) { create :comment_type }
 
     scenario 'update the existing comment type' do
