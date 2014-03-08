@@ -9,7 +9,7 @@
 #end
 #
 
-Spree::Core::Engine.routes.prepend do
+Spree::Core::Engine.add_routes do
   namespace :admin do
     resources :comments
     resources :comment_types
@@ -26,8 +26,4 @@ Spree::Core::Engine.routes.prepend do
       end
     end
   end
-
-#match '/admin/comments' => 'admin/comments', :via => [:get, :post]
-#  match '/admin/comment_types' => 'admin/comment_types', :via => [:get, :post]
 end
-
