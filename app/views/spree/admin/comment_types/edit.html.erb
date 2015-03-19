@@ -1,4 +1,4 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
 
 <div id="admin_comment_type_edit_form_header" data-hook>
   <h1><%= Spree.t(:editing_comment_type) %></h1>
@@ -8,7 +8,7 @@
 <div id="admin_comment_type_edit_form" data-hook>
   <%= form_for(@comment_type, :url => object_url, :html => { :method => :put }) do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
-
+<br>
     <div id="admin_comment_type_edit_form_buttons" data-hook>
       <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
     </div>

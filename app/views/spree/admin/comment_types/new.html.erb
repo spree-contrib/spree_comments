@@ -1,13 +1,13 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+
 
 <% content_for :page_title do %>
   <%= Spree.t(:new_comment_type) %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li>
+
     <%= button_link_to Spree.t(:back_to_comment_types_list), admin_comment_types_path, :icon => 'icon-arrow-left' %>
-  </li>
+
 <% end %>
 
 <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @comment_type } %>
@@ -16,6 +16,7 @@
   <fieldset class="no-border-top">
     <%= render :partial => 'form', :locals => { :f => f } %>
     <div data-hook="buttons" class="filter-actions actions">
+		<br>
       <%= button Spree.t(:create), 'icon-ok' %>
     </div>
   </fieldset>

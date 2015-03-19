@@ -1,12 +1,12 @@
 <% if commentable.comments.any? %>
   <%= render 'spree/admin/shared/comment_list', :commentable => commentable %>
 <% else %>
-  <div class="alpha twelve columns no-objects-found">
+  <div class="co no-objects-found"l-md-12>
     <%= Spree.t(:no_resource_found, resource: I18n.t(:comments, scope: 'spree')) %>
   </div>
 <% end %>
 
-<div class="order-add-comment">
+<div class=" col-md-12 order-add-comment">
   <%= form_for(:comment, :url => admin_comments_url) do |f| %>
     <%= hidden_field_tag 'comment[commentable_id]', commentable.id %>
     <%= hidden_field_tag 'comment[commentable_type]', commentable.class %>
@@ -17,16 +17,16 @@
         <legend align="center"><%= Spree.t(:add_comment) %></legend>
 
         <div data-hook="comment_fields" class="row">
-          <div class="alpha twelve columns">
+          <div class="col-md-12">
             <% if @comment_types.present? %>
               <div class="field">
                 <%= f.label :comment_type_id, Spree.t(:type) %>
-                <%= f.select :comment_type_id, @comment_types.map{|ct| [ct.name, ct.id]},{} ,:class => 'fullwidth' %>
+                <%= f.select :comment_type_id, @comment_types.map{|ct| [ct.name, ct.id]},{} ,:class => 'form-control' %>
               </div>
             <% end %>
             <div class="field">
               <%= f.label :comment, Spree.t(:comment) %>
-              <%= f.text_area :comment, :style => 'height:150px;', :class => 'fullwidth' %>
+              <%= f.text_area :comment, :style => 'height:150px;', :class => 'form-control' %>
             </div>
           </div>
         </div>
