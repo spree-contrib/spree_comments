@@ -19,7 +19,7 @@ Installation
 
 Add the following to your Gemfile (or check Versionfile for Spree versions requirements):
 
-    gem "spree_comments", github: 'spree/spree_comments'
+    gem "spree_comments", github: 'spree-contrib/spree_comments'
 
 Run:
 
